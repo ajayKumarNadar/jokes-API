@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes Yard</title>
+
+    <!-- Bootstrap -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+    crossorigin="anonymous"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/style.css" />
+
+    <!-- Google Fonts -->
+
+    <!-- Icon Kit -->
+    <script
+    src="https://kit.fontawesome.com/b1cb12db09.js"
+    crossorigin="anonymous"
+    ></script>
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    </head>
+<body>
+
+    <div class="body">
+        <form action="{{ url_for('home') }}" method="post">
+            <div class="header">
+                <div class="brand-name">
+                    <h1>Jokes Yard</h1>
+                </div>
+                <div class="filter">
+                    <a class=""><i class="fa-solid fa-sliders"></i><span>Filter</span></a>
+                    <div class="filter-dropdown">
+                        <div class="categroy">
+                            <p>Category:</p>
+                            
+                            <label class="checkbox-container">Programming
+                                {% if filter_dict['Programming'] %}
+                                <input type="checkbox" name="Programming" checked="yes">
+                                {% else %}
+                                <input type="checkbox" name="Programming">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Miscellaneous
+                                {% if filter_dict['Miscellaneous'] %}
+                                <input type="checkbox" name="Miscellaneous" checked>
+                                {% else %}
+                                <input type="checkbox" name="Miscellaneous">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Dark
+                                {% if filter_dict['Dark'] %}
+                                <input type="checkbox" name="Dark" checked>
+                                {% else %}
+                                <input type="checkbox" name="Dark">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Pun
+                                {% if filter_dict['Pun'] %}
+                                <input type="checkbox" name="Pun" checked>
+                                {% else %}
+                                <input type="checkbox" name="Pun">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Spooky
+                                {% if filter_dict['Spooky'] %}
+                                <input type="checkbox" name="Spooky" checked>
+                                {% else %}
+                                <input type="checkbox" name="Spooky">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Christmas
+                                {% if filter_dict['Christmas'] %}
+                                <input type="checkbox" name="Christmas" checked>
+                                {% else %}
+                                <input type="checkbox" name="Christmas">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <hr>
+                        <div class="type">
+                            <p>Type:</p>
+                            
+                            <label class="checkbox-container">Single
+                                {% if filter_dict['single'] %}
+                                <input type="checkbox" name="single" checked>
+                                {% else %}
+                                <input type="checkbox" name="single">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Twopart
+                                {% if filter_dict['twopart'] %}
+                                <input type="checkbox" name="twopart" checked>
+                                {% else %}
+                                <input type="checkbox" name="twopart">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <hr>
+                        <div class="filter-out">
+                            <p>Filter Out:</p>
+                            
+                            <label class="checkbox-container">NSFW
+                                {% if filter_dict['nsfw'] %}
+                                <input type="checkbox" name="nsfw" checked>
+                                {% else %}
+                                <input type="checkbox" name="nsfw">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Religious
+                                {% if filter_dict['religious'] %}
+                                <input type="checkbox" name="religious" checked>
+                                {% else %}
+                                <input type="checkbox" name="religious">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Political
+                                {% if filter_dict['political'] %}
+                                <input type="checkbox" name="political" checked>
+                                {% else %}
+                                <input type="checkbox" name="political">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Racist
+                                {% if filter_dict['racist'] %}
+                                <input type="checkbox" name="racist" checked>
+                                {% else %}
+                                <input type="checkbox" name="racist">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Sexist
+                                {% if filter_dict['sexist'] %}
+                                <input type="checkbox" name="sexist" checked>
+                                {% else %}
+                                <input type="checkbox" name="sexist">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="checkbox-container">Explicit
+                                {% if filter_dict['explicit'] %}
+                                <input type="checkbox" name="explicit" checked>
+                                {% else %}
+                                <input type="checkbox" name="explicit">
+                                {% endif %}
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="content">
+
+                    {% if joke['type'] == "twopart" %}
+                    <div class="joke">
+                        <h2>{{ joke['setup'] }}</h2>
+                        <br>
+                        <h2>{{ joke['delivery'] }}</h2>
+                    </div>
+                    {% elif joke['type'] == "single" %}
+                    <div class="joke">
+                        <h2>{{ joke['joke'] }}</h2>
+                    </div>
+                    {% endif %}
+
+                    <div class="new">
+                        <button type="submit">Make a Joke!</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+    </div>
+    <script src="../static/js/index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

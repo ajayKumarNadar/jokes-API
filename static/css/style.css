@@ -1,0 +1,152 @@
+.body{
+    background-color: #187498;
+    color: #FFF;
+}
+form {
+    height: 100vh;
+}
+.header {
+    border-bottom: 1px solid #FFF;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand-name, .filter{
+    display: inline-block;
+}
+.brand-name h1 {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    font-size: 2.35rem;
+    font-weight: bold;
+}
+.filter {
+    font-size: 1.3rem;
+    position: relative;
+}
+.filter a {
+    padding: 6px;
+    cursor: pointer;
+    background-color: rgba(248, 222, 75, 0.8);
+    color: #000;
+    border: 2px solid #000;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.filter a.active {
+    background-color: rgb(255, 217, 0);
+    color: #000 !important;
+}
+
+.filter-dropdown {
+    min-width: 200px;
+    width: 80vw;
+    border: 2px solid #222;
+    border-radius: 10px;
+    background-color: #156686;
+    padding: 10px;
+    position: absolute;
+    top: 110%;
+    right: 20%;
+    opacity: 0;
+    pointer-events: none;
+}
+.filter-dropdown.active {
+    opacity: 1;
+    pointer-events: all;
+    box-shadow: -1px 0px 10px black;
+}
+.filter-dropdown p {
+    margin: 0 0 5px 0;
+}
+hr {
+    opacity: 1;
+    color: #000;
+    margin: 3px 0;
+}
+.checkbox-container {
+    position: relative;
+    padding-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: #21f352;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-container .checkmark:after {
+    left: 10px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+.middle {
+    padding: 20px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+.content {
+
+}
+.new {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.new button {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #36AE7C;
+    color: #000;
+    border-radius: 10px;
+    border: 3px solid #000;
+}
